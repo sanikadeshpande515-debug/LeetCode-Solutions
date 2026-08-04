@@ -1,0 +1,28 @@
+import java.util.*;
+class Solution {
+    public int equalPairs(int[][] grid) {
+    int n=grid.length;
+    int count =0;
+    HashMap<List<Integer>,Integer>map=new HashMap<>();
+for(int i=0;i<n;i++){
+    List<Integer> row=new ArrayList<>();
+    for(int j=0;j<n;j++){
+        row.add(grid[i][j]);
+    }
+    map.put(row,map.getOrDefault(row,0)+1);
+    }
+for(int j=0;j<n;j++){
+    List<Integer>column=new ArrayList<>();
+    for(int i=0;i<n;i++){
+        column.add(grid[i][j]);
+    }
+    if(map.containsKey(column)){
+        count+=map.get(column);
+    }
+}
+
+
+return count;
+    
+    }
+}
